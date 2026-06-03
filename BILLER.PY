@@ -1,12 +1,11 @@
-# Futuristic Shop Management System using CustomTkinter
-# Install dependencies: pip install customtkinter tabulate
+
 import sqlite3 as db
 import datetime
 from tabulate import tabulate 
 import customtkinter as ctk 
 from tkinter import messagebox
 
-# Initialize DB
+
 
 def initDB():
     connectObj = db.connect("shopMgmt.db")
@@ -24,7 +23,6 @@ def initDB():
     connectObj.commit()
     connectObj.close()
 
-# Helper functions
 
 def getInt(entry):
     try:
@@ -42,7 +40,7 @@ def getPhone(entry):
     except:
         return None
 
-# Main App Class
+
 
 class ShopApp(ctk.CTk):
     def __init__(self):
@@ -129,7 +127,7 @@ class ShopApp(ctk.CTk):
 
     def show_cashier_menu(self, user):
         self.clear()
-        self.state('zoomed')  # Full screen
+        self.state('zoomed') 
         ctk.CTkLabel(self, text=f"Welcome, {user}", font=("Orbitron", 22, "bold"), text_color="#00ffe7").pack(pady=10)
         ctk.CTkLabel(self, text="Cashier Menu", font=("Orbitron", 26, "bold"), text_color="#00ffe7").pack(pady=10)
         btns = [
@@ -179,7 +177,7 @@ class ShopApp(ctk.CTk):
         ctk.CTkButton(frame, text="Save Customer", command=save_customer, width=200, height=40, font=("Orbitron", 16), fg_color="green").grid(row=3, column=0, columnspan=2, pady=20)
         ctk.CTkButton(frame, text="Back", command=lambda: self.show_cashier_menu('cashier'), width=200, height=40, font=("Orbitron", 16), fg_color="#444").grid(row=4, column=0, columnspan=2, pady=5)
 
-    # Admin Functions
+    
     def admin_view_sales(self):
         self.clear()
         ctk.CTkLabel(self, text="All Sales", font=("Orbitron", 24, "bold"), text_color="#00ffe7").pack(pady=10)
@@ -335,7 +333,7 @@ class ShopApp(ctk.CTk):
         ctk.CTkButton(self, text="Change Password", command=change, width=200, height=40).pack(pady=10)
         ctk.CTkButton(self, text="Back", command=(self.show_admin_menu if userType == 0 else self.show_cashier_menu), width=200, height=40).pack(pady=5) # type: ignore
 
-    # Cashier Functions
+    
     def cashier_view_products(self):
         self.clear()
         ctk.CTkLabel(self, text="Available Products", font=("Orbitron", 24, "bold"), text_color="#00ffe7").pack(pady=10)
@@ -353,11 +351,11 @@ class ShopApp(ctk.CTk):
         import tkinter as tk
         from tkinter import ttk
         self.clear()
-        # Set a max window size for the billing page
+        
         self.geometry("1100x700")
         self.minsize(900, 650)
         self.state('zoomed')  # Always open in fullscreen
-        # Top bar with title and total amount
+       
         topbar = ctk.CTkFrame(self, fg_color="#181818")
         topbar.pack(fill="x", padx=0, pady=0)
         ctk.CTkLabel(topbar, text="ORDER DETAILS", font=("Orbitron", 24, "bold"), text_color="#2e3a59").pack(side="left", padx=30, pady=10)
@@ -366,12 +364,12 @@ class ShopApp(ctk.CTk):
         total_display_label.place(relx=1.0, rely=1.0, anchor="se", x=-30, y=-10)
         
         
-        # Top form frame
+       
         form_frame = ctk.CTkFrame(self, fg_color="#23272e")
         form_frame.pack(pady=5, padx=10, fill="x")
         label_font = ("Orbitron", 16)
         entry_width = 180
-        # Customer fields
+    
         ctk.CTkLabel(form_frame, text="Phone Number:", font=label_font, text_color="#00ffe7").grid(row=0, column=0, sticky="e", padx=6, pady=6)
         phone_entry = ctk.CTkEntry(form_frame, width=entry_width, font=("Consolas", 13))
         phone_entry.grid(row=0, column=1, padx=6, pady=6)
@@ -663,7 +661,7 @@ class ShopApp(ctk.CTk):
             
         save_btn_top = ctk.CTkButton(button_frame, text="Save & Print Bill", fg_color="#607D8B", width=160, command=save_and_print)
         save_btn_top.pack(side="right", padx=8)
-        # Add a back button for better navigation
+        
         back_btn = ctk.CTkButton(self, text="Back", fg_color="#444", width=100, command=lambda: self.show_cashier_menu('cashier'))
         back_btn.pack(pady=10)
 
