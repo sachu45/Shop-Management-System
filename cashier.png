@@ -1,0 +1,26 @@
+# Futuristic Shop Management System
+
+A desktop-based shop management application developed using Python, CustomTkinter, and SQLite.
+
+## Features
+- Admin and Cashier Login
+- Product Management
+- Customer Management
+- Employee Management
+- Billing System
+- Sales Tracking
+- Invoice Generation
+
+## Technologies Used
+- Python
+- CustomTkinter
+- SQLite
+- Tabulate
+
+## Installation
+pip install -r requirements.txt
+
+python BILLER.py
+
+## Author
+Sarrvesh J R
